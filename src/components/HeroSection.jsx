@@ -72,44 +72,36 @@ const HeroSection = () => {
             {sections.map((section, index) => (
               <CarouselItem key={index}>
                 <div
-                  className={`flex flex-col md:flex-row items-center gap-8 p-6 rounded-lg shadow-md ${section.bgColor}`}
+                  className={`flex flex-col md:flex-row items-center gap-6 p-4 rounded-lg shadow-md ${section.bgColor}`}
                 >
                   {/* Text Content */}
-                  <div className="flex-1">
-                    <h1 className="text-5xl font-extrabold capitalize mb-1 bg-gradient-to-r from-purple-500 via-purple-700 to-purple-900 bg-clip-text text-transparent">
+                  <div className="flex-1 text-center md:text-left">
+                    <h1 className="text-4xl md:text-5xl font-extrabold capitalize mb-2 bg-gradient-to-r from-purple-500 via-purple-700 to-purple-900 bg-clip-text text-transparent">
                       HOPE AESTHETICS
                     </h1>
-                    <p className="text-md font-semibold italic mb-12 pl-[200px]">
+                    <p className="text-sm md:text-md font-semibold italic mb-6">
                       La Dentale and Cosmetic Avenue
                     </p>
 
-                    <h2 className="text-2xl font-bold text-gray-800 mb-2 border-b-2 border-gray-400">
+                    <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2 border-b-2 border-gray-400">
                       {section.title}
                     </h2>
-                    <p className="text-gray-600 text-md">
+                    <p className="text-gray-600 text-sm md:text-md mb-4">
                       {section.description}
                     </p>
-                    <div className="flex items-center justify-center mt-12 gap-4">
-                      <div className="bg-[rgb(253,253,253,0.5)] px-8 py-2 rounded-lg font-semibold underline-offset-1 flex flex-col gap-2 items-center">
-                        <img src={section.p1} alt="" width={40} height={40} />
-                        <p className="text-sm fonnt-semibold text-center">
-                          {section.t1}
-                        </p>
-                      </div>
-                      <div className="bg-[rgb(253,253,253,0.5)] px-8 py-2 rounded-lg font-semibold underline-offset-1 flex flex-col gap-2 items-center">
-                        <img src={section.p2} alt="" width={40} height={40} />
-                        <p className="text-sm fonnt-semibold text-center">
-                          {section.t2}
-                        </p>
-                      </div>
-                      <div className="bg-[rgb(253,253,253,0.5)] px-8 py-2 rounded-lg font-semibold underline-offset-1 flex flex-col gap-2 items-center">
-                        <img src={section.p3} alt="" width={40} height={40} />
-                        <p className="text-sm fonnt-semibold text-center">
-                          {section.t3}
-                        </p>
-                      </div>
+                    <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-6">
+                      {[section.p1, section.p2, section.p3].map((icon, i) => (
+                        <div
+                          key={i}
+                          className="bg-[rgb(253,253,253,0.5)] px-6 py-2 rounded-lg font-semibold underline-offset-1 flex flex-col gap-2 items-center w-24"
+                        >
+                          <img src={icon} alt="" width={40} height={40} />
+                          <p className="text-xs md:text-sm font-semibold text-center">
+                            {section[`t${i + 1}`]}
+                          </p>
+                        </div>
+                      ))}
                     </div>
-                    <div></div>
                   </div>
 
                   {/* Image Content */}
@@ -117,7 +109,7 @@ const HeroSection = () => {
                     <img
                       src={section.image}
                       alt={section.title}
-                      className="object-cover rounded-lg aspect-[4/3] w-[300px] h-[400px] shadow-lg"
+                      className="object-cover rounded-lg w-48 h-64 md:w-[300px] md:h-[400px] shadow-lg"
                     />
                   </div>
                 </div>

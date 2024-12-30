@@ -75,16 +75,11 @@ const specializations = [
 export default function Speciality() {
   return (
     <div className="mb-8">
-      <h1
-        className="text-4xl font-bold text-center mt-16 gradient-text"
-        // style={{
-        //   textShadow: "2px 2px 6px rgba(0, 0, 0, 0.3)",
-        // }}
-      >
+      <h1 className="text-4xl font-bold text-center mt-16 gradient-text">
         Our Specializations
       </h1>
       <div
-        className="flex overflow-x-auto gap-6 p-4 my-8 mx-20"
+        className="flex overflow-x-auto gap-6 p-4 my-8 mx-20 "
         style={{
           whiteSpace: "nowrap",
           WebkitOverflowScrolling: "touch",
@@ -119,12 +114,11 @@ export default function Speciality() {
         `}</style>
         {specializations.map((specialization, index) => (
           <Card
-            className="card w-[300px]"
+            className="card w-[300px] flex-shrink-0"
             key={index}
             sx={{
               maxWidth: 245,
               display: "inline-block",
-              flexShrink: 0,
             }}
           >
             <CardActionArea>
@@ -158,7 +152,6 @@ export default function Speciality() {
               <Button size="small" color="primary">
                 Learn More
               </Button>
-          
             </CardActions>
           </Card>
         ))}
